@@ -10,10 +10,12 @@ class Resume extends Model
     use HasFactory;
 
     protected $fillable = [
+        'title',
         'content',
         'phone',
         'address_1',
         'address_2',
+        'city',
         'state',
         'country',
         'postal_code',

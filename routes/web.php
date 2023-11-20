@@ -26,3 +26,6 @@ Route::middleware([
         return view('dashboard');
     })->name('dashboard');
 });
+
+Route::get('/resume/edit/{resume}', App\Livewire\Resume\Edit::class)
+    ->name('resume.edit');
