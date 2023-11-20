@@ -12,8 +12,11 @@ class Skills extends Component
 
     public SkillForm $form;
 
+    public int $resumeId;
+
     public function mount(int $resumeId)
     {
+        $this->resumeId = $resumeId;
         $this->form->setResumeId($resumeId);
 
         $this->skills = Skill::query()->where('resume_id', $resumeId)->get();
@@ -24,6 +27,7 @@ class Skills extends Component
         $this->form->validate();
         $this->skills[] = $this->form->store();
         $this->form->reset();
+        $this->form->setResumeId($this->resumeId);
     }
 
     public function render()
