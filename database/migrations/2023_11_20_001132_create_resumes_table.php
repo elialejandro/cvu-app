@@ -14,6 +14,10 @@ return new class extends Migration
         Schema::create('resumes', function (Blueprint $table) {
             $table->id();
 
+            $table->foreignId('user_id')
+                ->constrained()
+                ->onDelete('cascade');
+
             $table->string('title');
             $table->string('content', 1024)->nullable();
             $table->string('phone', 18)->nullable();

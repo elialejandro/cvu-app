@@ -15,7 +15,8 @@ return new class extends Migration
             $table->id();
 
             $table->foreignId('resume_id')
-                ->constrained();
+                ->constrained()
+                ->onDelete('cascade');
 
             $table->string('title');
             $table->unsignedTinyInteger('value');
