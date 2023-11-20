@@ -14,13 +14,15 @@ return new class extends Migration
         Schema::create('resumes', function (Blueprint $table) {
             $table->id();
 
-            $table->string('content', 1024);
-            $table->string('phone', 18);
+            $table->string('title');
+            $table->string('content', 1024)->nullable();
+            $table->string('phone', 18)->nullable();
             $table->string('address_1')->nullable();
             $table->string('address_2')->nullable();
-            $table->string('state');
-            $table->string('country');
-            $table->integer('postal_code');
+            $table->string('city')->nullable();
+            $table->string('state')->nullable();
+            $table->string('country')->nullable();
+            $table->integer('postal_code')->nullable();
 
             $table->timestamps();
         });
