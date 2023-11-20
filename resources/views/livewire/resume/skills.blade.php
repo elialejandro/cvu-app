@@ -49,11 +49,13 @@
         <div class="w-1/2 sm:px-6 lg:px-8">
             <div class="p-5 bg-white overflow-hidden shadow-xl sm:rounded-lg">
                 @foreach ($skills as $skill)
-                <div>
-                    {{ $skill->id }}
-                    {{ $skill->resume_id }}
-                    {{ $skill->title }}
-                    {{ $skill->value }}
+                <div class="mb-4">
+                    <div class="font-semibold mb-1">{{ $skill->title }}</div>
+                    <div class="w-full border rounded-md">
+                        <div class="p-2 rounded-md" style="width: {{ $skill->value }}%; background-color: {{ $skill->color ?? '#ABCD00' }}">
+                            <span class="font-bold [text-shadow:1px_1px_1px_var(--tw-shadow-color)] shadow-white">{{ $skill->value }}</span>
+                        </div>
+                    </div>
                 </div>
                 @endforeach
             </div>
