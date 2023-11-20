@@ -28,4 +28,10 @@ class ShowResumes extends Component
         return redirect()->route('resume.edit', ['resume' => $resume->id]);
     }
 
+    public function delete($id)
+    {
+        $resume = Resume::findOrFail($id);
+        $resume->delete();
+    }
+
 }
