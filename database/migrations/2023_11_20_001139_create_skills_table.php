@@ -19,9 +19,9 @@ return new class extends Migration
 
             $table->string('title');
             $table->unsignedTinyInteger('value');
-            $table->string('image');
-            $table->string('color', 10);
-            $table->boolean('publish');
+            $table->string('image')->nullable();
+            $table->string('color', 10)->nullable();
+            $table->boolean('publish')->default(0);
 
             $table->timestamps();
         });
