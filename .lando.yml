@@ -1,0 +1,6 @@
+name: app-cv
+recipe: laravel
+config:
+  php: '8.2'
+  webroot: public
+
