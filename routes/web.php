@@ -25,7 +25,11 @@ Route::middleware([
     Route::get('/dashboard', function () {
         return view('dashboard');
     })->name('dashboard');
+
+    Route::get('/resume/edit/{resume}', App\Livewire\Resume\Edit::class)
+        ->name('resume.edit');
 });
 
-Route::get('/resume/edit/{resume}', App\Livewire\Resume\Edit::class)
-    ->name('resume.edit');
+Route::get('r/{uid}', App\Livewire\ShowResume::class)
+    ->name('resume.public');
+
