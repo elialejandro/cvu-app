@@ -12,6 +12,7 @@ class Resume extends Model
 
     protected $fillable = [
         'user_id',
+        'uid', // 'unique identifier
         'title',
         'content',
         'phone',

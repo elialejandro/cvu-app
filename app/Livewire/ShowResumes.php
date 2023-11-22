@@ -6,6 +6,7 @@ use App\Models\Resume;
 use Illuminate\Contracts\View\Factory;
 use Illuminate\Contracts\View\View;
 use Illuminate\Foundation\Application;
+use Illuminate\Support\Str;
 use Livewire\Component;
 
 class ShowResumes extends Component
@@ -22,6 +23,7 @@ class ShowResumes extends Component
     {
         $resume = Resume::create([
             'user_id' => auth()->user()->id,
+            'uid' => Str::random(8),
             'title' => 'Nuevo CV'
         ]);
 

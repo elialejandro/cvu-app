@@ -18,6 +18,10 @@ return new class extends Migration
                 ->constrained()
                 ->onDelete('cascade');
 
+            $table->string('uid')
+                ->unique()
+                ->index();
+
             $table->string('title');
             $table->string('content', 1024)->nullable();
             $table->string('phone', 18)->nullable();
