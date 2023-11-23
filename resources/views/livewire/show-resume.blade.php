@@ -14,8 +14,8 @@
             @foreach($resume->skills as $skill)
                 <div class="mb-4 flex flex-row justify-start items-center w-full">
 
-                    @if($skill->imagen)
-                    <img src="{{ $skill->imagen }}" alt="{{ $skill->title }}" class="mt-6 w-12 h-12 bg-cover rounded-full">
+                    @if($skill->image)
+                    <img src="{{ $skill->image }}" alt="{{ $skill->title }}" class="mt-6 mr-4 w-12 h-12 bg-cover rounded-full border">
                     @else
                         <div class="w-12 h-12 rounded-full mt-6 mr-4" style="background-color: {{ $skill->color ?? '#ABCD00' }}"></div>
                     @endif
