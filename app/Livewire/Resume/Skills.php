@@ -4,10 +4,14 @@ namespace App\Livewire\Resume;
 
 use App\Livewire\Forms\Resume\SkillForm;
 use App\Models\Skill;
+use Illuminate\Support\Facades\Storage;
 use Livewire\Component;
+use Livewire\WithFileUploads;
 
 class Skills extends Component
 {
+    use WithFileUploads;
+
     public $skills = [];
 
     public SkillForm $form;
@@ -25,6 +29,11 @@ class Skills extends Component
     public function add()
     {
         $this->form->validate();
+
+        if ($this->form->image) {
+            $this->form->image = Storage::publicUrl($this->form->image->store('skills'));
+        }
+
         $this->skills[] = $this->form->store();
         $this->form->reset();
         $this->form->setResumeId($this->resumeId);

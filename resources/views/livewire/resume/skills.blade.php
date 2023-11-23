@@ -27,8 +27,23 @@
 
                     <div class="mb-4">
                         <x-label>Imagen</x-label>
-                        <x-input type="file" class="w-full" wire:model="form.imagen"></x-input>
-                        @error('form.imagen') <span class="text-red-500">{{ $message }}</span> @enderror
+{{--                        <x-input type="file" class="w-full" wire:model="form.image"></x-input>--}}
+                        <div
+                            x-data="{ isUploading: false, progress: 0 }"
+                            x-on:livewire-upload-start="isUploading = true"
+                            x-on:livewire-upload-finish="isUploading = false"
+                            x-on:livewire-upload-error="isUploading = false"
+                            x-on:livewire-upload-progress="progress = $event.detail.progress"
+                        >
+                            <!-- File Input -->
+                            <input type="file" wire:model="form.image">
+
+                            <!-- Progress Bar -->
+                            <div x-show="isUploading">
+                                <progress max="100" x-bind:value="progress"></progress>
+                            </div>
+                        </div>
+                        @error('form.image') <span class="text-red-500">{{ $message }}</span> @enderror
                     </div>
 
                     <div class="mb-4">

@@ -17,6 +17,7 @@ class SkillForm extends Form
     #[Validate('required')]
     public $value;
 
+    #[Validate('nullable|image|max:4096')]
     public $image;
 
     public $color;
